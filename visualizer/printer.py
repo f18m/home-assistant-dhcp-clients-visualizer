@@ -8,4 +8,4 @@ curr = leases.get_current()  # Returns only the currently valid dhcp leases as d
 print("Current DHCP clients:")
 for mac in curr:
     x = curr[mac]
-    print(f"{x.ip} ({x.mac}), hostname={x.hostname}")
+    print(f"{x.ip} ({x.ethernet}), hostname={x.hostname}")
