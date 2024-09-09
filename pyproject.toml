@@ -1,0 +1,37 @@
+# 
+# NOTE: the 'project' metadata section is not present because PEP621 is still not supported
+#       by Poetry as of Apr 2024, see https://github.com/python-poetry/poetry/issues/3332
+
+[project.urls]
+"Homepage" = "https://github.com/f18m/home-assistant-dhcp-clients-visualizer"
+"Bug Tracker" = "https://github.com/f18m/home-assistant-dhcp-clients-visualizer/issues"
+
+[project.scripts]
+dhcp-leases-print = "visualizer:printer"
+
+[tool.black]
+line-length = 120
+
+[tool.poetry]
+name = "home-assistant-dhcp-clients-visualizer"
+version = "0.0.1"
+description = ""
+authors = ["Francesco Montorsi <francesco.montorsi@gmail.com>"]
+readme = "README.md"
+packages = [{include = "visualizer"}]
+
+[tool.poetry.scripts]
+dhcp-leases-print = "visualizer.printer"
+
+# DEPENDENCIES
+# 1) since Renovate bot is used, it's best to pin dependency versions; 
+#    see https://docs.renovatebot.com/modules/manager/poetry/
+# 2) reference docs for each dependency:
+#  dhcp-leases ->    https://github.com/acikogun/python-dhcp-leases
+[tool.poetry.dependencies]
+python = ">=3.11,<4.0"
+dhcp-leases = "0.1.6"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
